@@ -1,13 +1,17 @@
 use_frameworks!
 
+def kit_pods
+    pod 'GMDKit', :path => '../'
+end
+
 target 'GMDKit_Example' do
-  pod 'GMDKit', :path => '../'
-  
-  post_install do |installer|
-      installer.pods_project.targets.each do |target|
-          target.build_configurations.each do |config|
-              config.build_settings['SWIFT_VERSION'] = '3.0'
-          end
-      end
-  end
+    kit_pods
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '3.0' # or '3.0'
+        end
+    end
 end
