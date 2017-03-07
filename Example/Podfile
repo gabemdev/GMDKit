@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'GMDKit_Example' do
+  pod 'GMDKit', :path => '../'
+
+  target 'GMDKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
