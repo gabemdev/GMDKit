@@ -192,24 +192,10 @@ extension UIView {
         constrainEqual(.bottom, to: view, .bottom)
     }
     
-    /// If the `view` is nil, we take the superview.
-    public func center(in view: UIView? = nil) {
-        guard let container = view ?? self.superview else { fatalError() }
-        if #available(iOS 9.0, *) {
-            centerXAnchor.constrainEqual(container.centerXAnchor)
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 9.0, *) {
-            centerYAnchor.constrainEqual(container.centerYAnchor)
-        } else {
-            // Fallback on earlier versions
-        }
-    }
     
     //MARK: - load nib file
     
-    open func loadFromNib(_ nibName:String){
+    public func loadFromNib(_ nibName:String){
         
         let subviews = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
         guard let topView = subviews?.first as? UIView else {
@@ -222,7 +208,7 @@ extension UIView {
     }
     
     //MARK: - frame properties
-    open var frameX: CGFloat {
+    public var frameX: CGFloat {
         get{
             return self.frame.origin.x
         }
@@ -232,7 +218,7 @@ extension UIView {
         }
     }
     
-    open var frameY: CGFloat{
+    public var frameY: CGFloat{
         get{
             return self.frame.origin.y
         }
@@ -242,7 +228,7 @@ extension UIView {
         }
     }
     
-    open var frameWidth: CGFloat{
+    public var frameWidth: CGFloat{
         
         get{
             return self.frame.width
@@ -253,7 +239,7 @@ extension UIView {
         }
     }
     
-    open var frameHeight: CGFloat{
+    public var frameHeight: CGFloat{
         get {
             return self.frame.height
         }
@@ -263,7 +249,7 @@ extension UIView {
         }
     }
     
-    open var frameSize: CGSize {
+    public var frameSize: CGSize {
         get {
             return self.frame.size
         }
@@ -274,7 +260,7 @@ extension UIView {
     }
     
     
-    open var frameOrigin: CGPoint {
+    public var frameOrigin: CGPoint {
         get{
             return self.frame.origin
         }
@@ -284,7 +270,7 @@ extension UIView {
         }
     }
     
-    open var minX: CGFloat {
+    public var minX: CGFloat {
         get {
             return self.frameX
         }
@@ -294,7 +280,7 @@ extension UIView {
         }
     }
     
-    open var minY: CGFloat {
+    public var minY: CGFloat {
         
         get{
             return self.frameY
@@ -305,7 +291,7 @@ extension UIView {
         }
     }
     
-    open var maxX: CGFloat{
+    public var maxX: CGFloat{
         get{
             return self.frame.maxX
         }
@@ -315,7 +301,7 @@ extension UIView {
         }
     }
     
-    open var maxY: CGFloat{
+    public var maxY: CGFloat{
         get{
             return self.frame.maxY
         }
@@ -327,12 +313,12 @@ extension UIView {
     
     // MARK: - Background gradient color
     
-    open func setBackgroundGradienVertical(color:UIColor)
+    public func setBackgroundGradienVertical(color:UIColor)
     {
         self.setBackgroundGradienVertical(topColor: color.withAlphaComponent(0.0), bottomColor: color)
     }
     
-    func setBackgroundGradienVertical(topColor:UIColor, bottomColor:UIColor)
+    public func setBackgroundGradienVertical(topColor:UIColor, bottomColor:UIColor)
     {
         self.setBackgroundGradien(topColor: topColor, bottomColor: bottomColor, startPoint: CGPoint(x:0.5, y:0.0), endPoint: CGPoint(x:0.5, y:1.0))
     }
@@ -343,7 +329,7 @@ extension UIView {
      endPoint is where the bottomColor will end
      */
     
-    open func setBackgroundGradien(topColor:UIColor, bottomColor:UIColor, startPoint:CGPoint, endPoint:CGPoint)
+    public func setBackgroundGradien(topColor:UIColor, bottomColor:UIColor, startPoint:CGPoint, endPoint:CGPoint)
     {
         let gradient = CAGradientLayer()
         
@@ -360,7 +346,7 @@ extension UIView {
         static var activityIndicatorName = "activityIndicatorName"
     }
     
-    open private(set) var activityIndicator: UIActivityIndicatorView? {
+    public private(set) var activityIndicator: UIActivityIndicatorView? {
         get {
             
             let indicator = objc_getAssociatedObject(self, &AssociatedKeys.activityIndicatorName) as? UIActivityIndicatorView
@@ -380,7 +366,7 @@ extension UIView {
     }
     
     
-    open func showActivityIndicator() {
+    public func showActivityIndicator() {
         
         if self.activityIndicator == nil {
             self.activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
@@ -393,25 +379,25 @@ extension UIView {
         self.activityIndicator?.startAnimating()
     }
     
-    open func hideActivityIndicator(){
+    public func hideActivityIndicator(){
         self.activityIndicator?.stopAnimating()
     }
     
     
     //MARK: - postioning
     
-    open func centerInSuperview() {
+    public func centerInSuperview() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.centerHorizontallyInSuperview()
         self.centerVerticallyInSuperview()
     }
     
-    open func centerHorizontallyInSuperview(){
+    public func centerHorizontallyInSuperview(){
         let centerInX: NSLayoutConstraint = NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: self.superview, attribute: .centerX, multiplier: 1, constant: 0)
         self.superview?.addConstraint(centerInX)
     }
     
-    open func centerVerticallyInSuperview(){
+    public func centerVerticallyInSuperview(){
         let centerInY: NSLayoutConstraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: self.superview, attribute: .centerY, multiplier: 1, constant: 0)
         self.superview?.addConstraint(centerInY)
     }
@@ -437,14 +423,12 @@ extension UIView {
     }
 }
 
-@available(iOS 9.0, *)
-extension NSLayoutAnchor {
-    public func constrainEqual(_ anchor: NSLayoutAnchor, constant: CGFloat = 0) {
-        let constraint = self.constraint(equalTo: anchor, constant: constant)
-        constraint.isActive = true
-    }
-    
-}
+//extension NSLayoutAnchor<AnchorType> {
+//    public func constrainEqual(anchor: NSLayoutAnchor, constant: CGFloat = 0) {
+//        let constraint = self.constraint(equalTo: anchor as! NSLayoutAnchor, constant: constant)
+//        constraint.isActive = true
+//    }
+//}
 
 extension Date {
     
