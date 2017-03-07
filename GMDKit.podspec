@@ -9,34 +9,23 @@
 Pod::Spec.new do |s|
   s.name             = 'GMDKit'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of GMDKit.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = 'A set of helper tools that will make iOS development easier.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+A set of helper tools that will make iOS development easier.
                        DESC
 
   s.homepage         = 'https://github.com/gabemdev/GMDKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'gabemdev' => 'gabomorales@me.com' }
+  s.author           = { 'Gabe Morales' => 'gabomorales@me.com' }
   s.source           = { :git => 'https://github.com/gabemdev/GMDKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'GMDKit/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'GMDKit' => ['GMDKit/Assets/*.png']
-  # }
+  s.frameworks = 'UIKit', 'MapKit'
+  s.source_files = 'GMDKit/Classes/*.{swift}'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

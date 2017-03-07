@@ -1,0 +1,16 @@
+PODS:
+  - GMDKit (0.1.0)
+
+DEPENDENCIES:
+  - GMDKit (from `../`)
+
+EXTERNAL SOURCES:
+  GMDKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  GMDKit: 8a5a4b4440429deb6bb6a71d8bef9045f03fe387
+
+PODFILE CHECKSUM: afe2786c4c48ec705c9cee97166cec84390d813b
+
+COCOAPODS: 1.1.1
