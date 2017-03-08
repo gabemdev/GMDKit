@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GMDKit'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A set of helper tools that will make iOS development easier.'
 
   s.description      = 'A set of helper tools that will make iOS development easier.'
