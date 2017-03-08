@@ -45,7 +45,7 @@
 		905452950C4EE910196A4DB7 /* Pods-GMDKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMDKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMDKit_Example/Pods-GMDKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		95591AFCD628E3F74E61F1BF /* Pods-GMDKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMDKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMDKit_Tests/Pods-GMDKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9900E2376EF6524DAE7BDE35 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		B0F1122FE57DBF35941390C0 /* GMDKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GMDKit.podspec; path = ../GMDKit.podspec; sourceTree = "<group>"; };
+		B0F1122FE57DBF35941390C0 /* GMKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GMKit.podspec; path = ../GMKit.podspec; sourceTree = "<group>"; };
 		CD947C0A0D69B5F980CD5217 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,7 +135,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				B0F1122FE57DBF35941390C0 /* GMDKit.podspec */,
+				B0F1122FE57DBF35941390C0 /* GMKit.podspec */,
 				CD947C0A0D69B5F980CD5217 /* README.md */,
 				9900E2376EF6524DAE7BDE35 /* LICENSE */,
 			);
