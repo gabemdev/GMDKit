@@ -29,7 +29,7 @@ public enum AppStoryboard : String {
 }
 
 
-public extension UIViewController {
+extension UIViewController {
     public class var storyboardID : String {
         return "\(self)"
     }
@@ -56,5 +56,4 @@ public extension UIViewController {
             return self
         }
     }
-}
 }
