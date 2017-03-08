@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class GMDSegment: UIControl {
+public class GMDSegment: UIControl {
     
     var selectedItem = ""
     var indexSelected: Int = 0
@@ -26,25 +26,25 @@ class GMDSegment: UIControl {
     private var icon: [UIImage] = []
     private var selected_icon : [UIImage] = []
     
-    @IBInspectable open var defaultBackgroundColor: UIColor! = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) {
+    @IBInspectable public var defaultBackgroundColor: UIColor! = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) {
         didSet {
             backgroundColor = defaultBackgroundColor
         }
     }
     
-    @IBInspectable open var textColor: UIColor! = #colorLiteral(red: 0, green: 0.5647058824, blue: 0.7294117647, alpha: 1) {
+    @IBInspectable public var textColor: UIColor! = #colorLiteral(red: 0, green: 0.5647058824, blue: 0.7294117647, alpha: 1) {
         didSet {
             selectedLabel.textColor = textColor
         }
     }
     
-    @IBInspectable open var selectedTextColor: UIColor! = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1) {
+    @IBInspectable public var selectedTextColor: UIColor! = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1) {
         didSet {
             selectedLabel.textColor = selectedTextColor
         }
     }
     
-    @IBInspectable open var selectedButtonColor: UIColor! = #colorLiteral(red: 0.4431372549, green: 0.3529411765, blue: 0.737254902, alpha: 1) {
+    @IBInspectable public var selectedButtonColor: UIColor! = #colorLiteral(red: 0.4431372549, green: 0.3529411765, blue: 0.737254902, alpha: 1) {
         didSet {
             if (isSelected) {
                 containerView.backgroundColor = selectedButtonColor
@@ -52,13 +52,13 @@ class GMDSegment: UIControl {
         }
     }
     
-    @IBInspectable open var textFont: UIFont! = UIFont.systemFont(ofSize: 10) {
+    @IBInspectable public var textFont: UIFont! = UIFont.systemFont(ofSize: 10) {
         didSet {
             selectedLabel.font = textFont
         }
     }
     
-    override open var isSelected : Bool {
+    override public var isSelected : Bool {
         didSet {
             if (isSelected != oldValue) {
                 if isSelected {
@@ -106,7 +106,7 @@ class GMDSegment: UIControl {
         addIndividualItemConstraints(items: labels, mainView: self, padding: 0)
     }
     
-    open override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+    public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let location = touch.location(in: self)
         
         var calculateIndex: Int?
@@ -159,7 +159,7 @@ class GMDSegment: UIControl {
         #endif
     }
     
-    open func addButtonsWithTitles(_ buttonTitles: [String]) {
+    public func addButtonsWithTitles(_ buttonTitles: [String]) {
         setupLabels(buttonTitles)
         isUserInteractionEnabled = true
         layer.cornerRadius = frame.height / 2
@@ -173,15 +173,15 @@ class GMDSegment: UIControl {
     }
     
     
-    open func deselect() {
+    public func deselect() {
         isSelected = false
     }
     
-    open func select() {
+    public func select() {
         isSelected = true
     }
     
-    open override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         var selectFrame = self.bounds
@@ -195,7 +195,7 @@ class GMDSegment: UIControl {
     
     
     
-    func addIndividualItemConstraints(items: [UIView], mainView: UIView, padding: CGFloat) {
+    public func addIndividualItemConstraints(items: [UIView], mainView: UIView, padding: CGFloat) {
         for (index, button) in items.enumerated() {
             
             let topConstraint = NSLayoutConstraint(item: button, attribute: .top, relatedBy: .equal, toItem: mainView, attribute: NSLayoutAttribute.top, multiplier: 1.0, constant: 0)

@@ -12,7 +12,7 @@ enum Skycons {
     case clearDay, clearNight, rain, sleet, wind, fog, cloudy, partlyCloudyDay, partlyCloudyNight, snow
 }
 
-enum SkyIcons : String {
+public enum SkyIcons : String {
     
     case clearDay, clearNight, rain, sleet, wind, fog, cloudy, partlyCloudyDay, partlyCloudyNight, snow
     
@@ -85,7 +85,7 @@ let WIND_PATHS = [
 
 let Wind_OFFSETS = [SkyWindOffset(start: 0.36, end: 0.11), SkyWindOffset(start: 0.56, end: 0.16)]
 
-class SkyIconVIew: UIView {
+public class SkyIconVIew: UIView {
     
     fileprivate var _type = SkyIcons.clearDay
     fileprivate var _color = UIColor.black
@@ -108,7 +108,7 @@ class SkyIconVIew: UIView {
         self.play()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -126,7 +126,7 @@ class SkyIconVIew: UIView {
         self.setNeedsDisplay()
     }
     
-    override func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         //     super.drawRect(rect)
         
         let ctx: CGContext = UIGraphicsGetCurrentContext()!
@@ -159,7 +159,7 @@ class SkyIconVIew: UIView {
     }
     
     // Create View
-    open func setupGlyph(onView iconView: UIView, iconTypeString: String, withColor color: UIColor) {
+    public func setupGlyph(onView iconView: UIView, iconTypeString: String, withColor color: UIColor) {
         let weather = SkyIconVIew(frame: iconView.bounds)
         weather.setColor = color
         weather.backgroundColor = .clear
@@ -175,7 +175,7 @@ class SkyIconVIew: UIView {
         iconView.addSubview(weather)
     }
     
-    open func setupGlyph(onView iconView: UIView, iconTypeString: String) {
+    public func setupGlyph(onView iconView: UIView, iconTypeString: String) {
         setupGlyph(onView: iconView, iconTypeString: iconTypeString, withColor: .white)
     }
     
@@ -581,7 +581,7 @@ class SkyIconVIew: UIView {
         ctx.strokePath()
     }
     
-    func CGContextAddArc(_ context: CGContext, _ centerX: CGFloat, _ centerY: CGFloat, _ radius: CGFloat, _ startAngle: CGFloat, _ endAngle: CGFloat, _ clockwise: Int ) {
+    public func CGContextAddArc(_ context: CGContext, _ centerX: CGFloat, _ centerY: CGFloat, _ radius: CGFloat, _ startAngle: CGFloat, _ endAngle: CGFloat, _ clockwise: Int ) {
         let centerPoint = CGPoint(x: centerX, y: centerY)
         let isClockWise = clockwise == 0 ? false : true
         context.addArc(center: centerPoint, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: isClockWise)
