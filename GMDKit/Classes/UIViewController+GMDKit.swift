@@ -29,7 +29,7 @@ public enum AppStoryboard : String {
 }
 
 
-extension UIViewController {
+public extension UIViewController {
     public class var storyboardID : String {
         return "\(self)"
     }
@@ -54,6 +54,18 @@ extension UIViewController {
             return navController.visibleViewController!
         } else {
             return self
+        }
+    }
+    
+    public func dismissAnyModalChildren(animated: Bool, withCompletion completion: (() -> ())?) {
+        if presentedViewController != nil {
+            dismiss(animated: animated, completion: completion)
+        }
+        else {
+            for child in childViewControllers {
+                child.dismissAnyModalChildren(animated: animated, withCompletion: nil)
+            }
+            completion?()
         }
     }
 }
